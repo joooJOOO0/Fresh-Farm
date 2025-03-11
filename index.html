@@ -58,8 +58,11 @@
             }
         })
 
-        onKeyDown({"down", "up"}, () => {
+        onKeyPress({"down", "up"}, () => {
             moving_ver = true
+        })
+        onKeyPress({"left", "right"}, () => {
+            moving_hor = true
         })
 
         // onClick() registers an event that runs once when left mouse is clicked
