@@ -20,7 +20,10 @@
         const SPEED = 320
         var moving_hor = false
         var moving_ver = false
-        var moving_dir = {right: false, left: false, up: false, down: false}
+        var moving_r = false
+        var moving_l = false
+        var moving_u = false
+        var moving_d = false
 
         // Add player game object
         const player = add([
@@ -53,10 +56,10 @@
         })
 
         onKeyDown("down", () => {
-            moving_dir[3] = true
+            moving_d = true
         })
 
-        if (moving_dir[3]) {
+        if (moving_d) {
             player.move(0, SPEED)
         }
         
