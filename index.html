@@ -20,6 +20,7 @@
         const SPEED = 320
         var moving_hor = false
         var moving_ver = false
+        var moving_dir = {right: false, left: false, up: false, down: false}
 
         // Add player game object
         const player = add([
@@ -52,18 +53,13 @@
         })
 
         onKeyDown("down", () => {
-            moving_hor = false
-            if (moving_ver) {
-                player.move(0, SPEED)
-            }
+            moving_dir[3] = true
         })
 
-        onKeyPress(["down", "up"], () => {
-            moving_ver = true
-        })
-        onKeyPress(["left", "right"], () => {
-            moving_hor = true
-        })
+        if (moving_dir[3]) {
+            player.move(0, SPEED)
+        }
+        
 
         // onClick() registers an event that runs once when left mouse is clicked
         onClick(() => {
