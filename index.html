@@ -31,7 +31,6 @@
         // onKeyDown() registers an event that runs every frame as long as user is holding a certain key
         onKeyDown("left", () => {
             // .move() is provided by pos() component, move by pixels per second
-            moving_hor = true
             moving_ver = false
             if (moving_hor) {
                 player.move(-SPEED, 0)
@@ -39,7 +38,6 @@
         })
 
         onKeyDown("right", () => {
-            moving_hor = true
             moving_ver = false
             if (moving_hor) {
                 player.move(SPEED, 0)
@@ -48,7 +46,6 @@
 
         onKeyDown("up", () => {
             moving_hor = false
-            moving_ver = true
             if (moving_ver) {
                 player.move(0, -SPEED)
             }
@@ -56,10 +53,13 @@
 
         onKeyDown("down", () => {
             moving_hor = false
-            moving_ver = true
             if (moving_ver) {
                 player.move(0, SPEED)
             }
+        })
+
+        onKeyDown({"down", "up"}, () => {
+            moving_ver = true
         })
 
         // onClick() registers an event that runs once when left mouse is clicked
