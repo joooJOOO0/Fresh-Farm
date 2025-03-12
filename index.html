@@ -32,43 +32,24 @@
             pos(center()),
         ])
 
-        // onKeyDown() registers an event that runs every frame as long as user is holding a certain key
         onKeyDown("left", () => {
-            // .move() is provided by pos() component, move by pixels per second
-            moving_ver = false
-            if (moving_hor) {
-                player.move(-SPEED, 0)
-            }
+	    // .move() is provided by pos() component, move by pixels per second
+        	player.move(-SPEED, 0)
         })
-
-        onKeyDown("right", () => {
-            moving_ver = false
-            if (moving_hor) {
-                player.move(SPEED, 0)
-            }
-        })
-
-        onKeyDown("up", () => {
-            moving_hor = false
-            if (moving_ver) {
-                player.move(0, -SPEED)
-            }
-        })
-
-        onKeyDown("down", () => {
-            moving_d = true
-        })
-
-        if (moving_d) {
-            player.move(0, SPEED)
-        }
         
-
-        // onClick() registers an event that runs once when left mouse is clicked
-        onClick(() => {
-            // .moveTo() is provided by pos() component, changes the position
-            player.moveTo(mousePos())
+        onKeyDown("right", () => {
+        	player.move(SPEED, 0)
         })
+        
+        onKeyDown("up", () => {
+        	player.move(0, -SPEED)
+        })
+        
+        onKeyDown("down", () => {
+        	player.move(0, SPEED)
+        })
+                
+        player.moveTo(mousePos())
 
         add([
             // text() component is similar to sprite() but renders text
