@@ -48,8 +48,10 @@
         onKeyDown("down", () => {
         	player.move(0, SPEED)
         })
-                
-        player.moveTo(mousePos())
+
+		onMouseDown(() => {
+			player.moveTo(mousePos())	
+		})
 
         add([
             // text() component is similar to sprite() but renders text
